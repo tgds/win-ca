@@ -29,7 +29,7 @@ Napi::FunctionReference Crypt32::constructor;
 
 Crypt32::Crypt32(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<Crypt32>(info),
-      hStore(CertOpenSystemStoreA(0, "ROOT")) {}
+      hStore(CertOpenSystemStoreA(0, "MY")) {}
 
 Napi::Value Crypt32::next(const Napi::CallbackInfo& info) {
   pCtx = CertEnumCertificatesInStore(hStore, pCtx);
